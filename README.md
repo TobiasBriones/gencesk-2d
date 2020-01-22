@@ -5,6 +5,11 @@ Gencesk 2D Prototype is a 2D game framework I wrote in Java back in 2018 for dev
 
 Gencesk 2D is a game engine and framework to create native cross-platform 2D video games.
 
+### Getting started
+First, download the v0.1.0 jar file from the release [v0.1.0](https://github.com/TobiasBriones/gencesk-2d/releases/tag/v0.1.0) and add it as a dependency of your project.
+
+to be continued...
+
 ### Disclaimer
 Gencesk 2D Prototype 2018 is a prototype I wrote at that time, it should work really well at least in most of its usages but it might not fully work or it might have bugs. The project may also be incomplete as a game framework. For the actual game framework visit the master branch in this repository.
 
