@@ -8,16 +8,156 @@ Gencesk 2D is a game engine and framework to create native cross-platform 2D vid
 ### Getting started
 First, download the v0.1.0 jar file from the release [v0.1.0](https://github.com/TobiasBriones/gencesk-2d/releases/tag/v0.1.0) and add it as a dependency of your project.
 
-to be continued...
+Next, create a JFrame which will be the window to render the game.
 
-### Disclaimer
-Gencesk 2D Prototype 2018 is a prototype I wrote at that time, it should work really well at least in most of its usages but it might not fully work or it might have bugs. The project may also be incomplete as a game framework. For the actual game framework visit the master branch in this repository.
+```
+public final class MainWindow extends JFrame {
+    public MainWindow() {
+        super("Fun game");
+        setResizable(false);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+    
+    public Container getOutputContainer() {
+        return getContentPane();
+    }
+    
+    public void createUI() {
+        final int width = FunGame.GAME_SIZE.getWidth();
+        final int height = FunGame.GAME_SIZE.getWidth();
+        
+        setPreferredSize(new Dimension(width, height));
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+}
+```
+
+Create a Game class to define your game in general.
+
+```
+public final class FunGame extends Game {
+    public static final Dimension2D GAME_SIZE = new Dimension2D(960, 540);
+    private final GameConfig gameConfig;
+    private KeyEventHandler keyHandler;
+    private Scene currentScene;
+    
+    public FunGame() {
+        this.gameConfig = new GameConfig();
+        this.keyHandler = null;
+        this.currentScene = null;
+        
+        gameConfig.setResolution(GAME_SIZE.getWidth(), GAME_SIZE.getHeight());
+        gameConfig.setFps(FPSConfig.HIGH_FPS);
+    }
+    
+    @Override
+    protected GameConfig getGameConfig() {
+        return gameConfig;
+    }
+    
+    @Override
+    protected RenderView onCreateRenderView(RenderViewTickCallback renderViewTickCallback) {
+        final RenderView renderView = new RenderView(renderViewTickCallback, gameConfig);
+        keyHandler = new KeyEventHandler(renderView);
+        return renderView;
+    }
+    
+    @Override
+    protected void onPrepare() {
+        try {
+            currentScene = new MainScene(this);
+        }
+        catch (Exception e) {
+            final String msg = "Fail to load resources. " + e;
+            
+            JOptionPane.showMessageDialog(null, msg);
+            e.printStackTrace();
+            System.exit(-1);
+        }
+    }
+    
+    @Override
+    protected Scene getCurrentScene() {
+        return currentScene;
+    }
+    
+    KeyEventHandler getKeyHandler() {
+        return keyHandler;
+    }
+}
+```
+
+Create a Scene which will take care of loading assets, managing the game logic and rendering. You can have MenuScene, MainScene or other depending on what part of the game will appear on that scene.
+
+```
+public final class MainScene extends Scene {
+    
+    // Declare any resource or member required by this scene
+    /*
+        ...
+     */
+
+    public MainScene(Game game) {
+        super(game);
+        // Init your game and assets like images or audios
+        /*
+            ...
+         */
+    }
+    
+    @Override
+    protected void update(long l) {
+        // Define the logic of the game, it updates a certain amount of time per
+        // second if the game goes smooth
+        // For 60 FPS, this method is called every 16ms to update the game logic
+        /*
+            ...
+         */
+    }
+    
+    @Override
+    protected void composeFrameBuffer(Graphics2D graphics2D) {
+        // Paint your graphics in the graphics2D object!
+        /*
+            ...
+         */
+    }
+    
+}
+```
+
+To create a bitmap you can use.
+
+```
+this.background = Bitmap.createBitmap(new File("assets/background.png"));
+```
+
+and to render it in the composeFrameBuffer method just paint it.
+
+```
+background.draw(graphics2D);
+```
+
+You will be able to do many things like  playing audio, transforming the bitmap, add obstacles, handle input events and more.
+
+#### Losnot in paradise
+[![losnot_in_paradise_sample_1](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/lostnot_in_paradise_sample_1.gif)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
+<p align=center><strong>Losnot in paradise - First version of the game created in Gencesk 2D Prototype 2018</strong></p>
+
+This is the game I mention in *My Story* section below, I was able to create the game with little to no overhead about managing game rendering and all the underlying process since the framework prototype does its job quite decently. Later I was able to add the AI algorithm so that the game plays by itself.
+
+Losnot in paradise is open source and you may check the project to see how easily a game like this is created, after checking this documentation you should be able to understand the framework prototype and the game.
+
+[Link to the Losnot in paradise repository](https://github.com/TobiasBriones/losnot-in-paradise)
 
 ### Some documentation
 #### Definition
 It gives the capabilities when being implemented of:
 - Build a complete 2D game
 - Focus on just the game as project and not on the logic to render the game or any other kind of game engine task
+- Allow the native usage of machine learning algorithms to create research from the games created in this framework
 
 #### Description
 Framework that provides a simple but powerful frame to build any kind of 2D game on Java.
@@ -52,6 +192,9 @@ Finally I have something interesting which is the key pool algorithm. When runni
 
 [![keypool-algorithm](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/keypool-algorithm.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
 <p align=center><strong>KeyPool Algorithm</strong></p>
+
+### Disclaimer
+Gencesk 2D Prototype 2018 is a prototype I wrote at that time, it should work really well at least in most of its usages but it might not fully work or it might have bugs. The project may also be incomplete as a game framework. For the actual game framework visit the master branch in this repository.
 
 ### License
 Gencesk 2D and Gencesk 2D Prototype 2018 are licensed under the [BSD 3-Clause License](https://github.com/TobiasBriones/gencesk-2d/blob/prototype-2018/LICENSE).
