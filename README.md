@@ -14,6 +14,17 @@ to be continued...
 Gencesk 2D Prototype 2018 is a prototype I wrote at that time, it should work really well at least in most of its usages but it might not fully work or it might have bugs. The project may also be incomplete as a game framework. For the actual game framework visit the master branch in this repository.
 
 ### Some documentation
+#### Definition
+It gives the capabilities when being implemented of:
+- Build a complete 2D game
+- Focus on just the game as project and not on the logic to render the game or any other kind of game engine task
+
+#### Description
+Framework that provides a simple but powerful frame to build any kind of 2D game on Java.
+
+Also recall that this prototype was not finished due the creation of the new Gencesk 2D framework, so some definitions won't be satisfied in this prototype.
+
+#### Diagrams
 The following images are informal representations of what I did. Let's start with the package structure of the project.
 
 [![package-structure](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/package-structure.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
@@ -41,6 +52,11 @@ Finally I have something interesting which is the key pool algorithm. When runni
 
 [![keypool-algorithm](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/keypool-algorithm.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
 <p align=center><strong>KeyPool Algorithm</strong></p>
+
+### License
+Gencesk 2D and Gencesk 2D Prototype 2018 are licensed under the [BSD 3-Clause License](https://github.com/TobiasBriones/gencesk-2d/blob/prototype-2018/LICENSE).
+
+Images are licensed under the [CC-BY-4.0 License](https://github.com/TobiasBriones/images/blob/master/LICENSE) and available at [Gencesk 2D Prototype 2018 Images](https://github.com/TobiasBriones/images/tree/master/gencesk-2d/gencesk-2d-prototype-2018).
 
 ### My Story
 After several experiences of mine in the past about developing games and studying how a game engine works in general, in 2018 I started to read about AI for games and started to develop a simple game to be able to create an AI algorithm supposed to learn how to play and complete the game through evolution, I particularly rather write my own code than accepting that of others that I don't completely agree with, so I was like, I don't develop games and don't want to mess up with stuff like Unity or game libraries, at that point I was willing to write the game framework and the game and the AI for the game, so great, right there, I just added one interesting project more to my valuable professional portfolio. I needed some technical basis and I had them, although I've never been a game developer but I've been interested in the engines architectures and surrounding engineering, since back in the time (about 2013) when I started adventuring in programming with Java and Android development I also tried with silly games and rendering things with threads and all that, so I was able to create this framework and now in 2020 I decided to review it, collect my old diagrams about the project, publish it and create Gencesk 2D with a new horizon chock full of possibilities.
