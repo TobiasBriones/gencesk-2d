@@ -153,6 +153,8 @@ Losnot in paradise is open source and you may check the project to see how easil
 [Link to the Losnot in paradise repository](https://github.com/TobiasBriones/losnot-in-paradise)
 
 ### Some documentation
+I will provide next, definition, description and diagrams of the Gencesk 2D Prototype.
+
 #### Definition
 It gives the capabilities when being implemented of:
 - Build a complete 2D game
