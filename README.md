@@ -143,7 +143,7 @@ background.draw(graphics2D);
 You will be able to do many things like  playing audio, transforming the bitmap, add obstacles, handle input events and more.
 
 #### Losnot in paradise
-[![losnot_in_paradise_sample_1](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/lostnot_in_paradise_sample_1.gif)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
+[![Losnot in paradise sample 1](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/lostnot-in-paradise-sample-1.gif)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
 <p align=center><strong>Losnot in paradise - First version of the game created in Gencesk 2D Prototype 2018</strong></p>
 
 This is the game I mention in *My Story* section below, I was able to create the game with little to no overhead about managing game rendering and all the underlying process since the framework prototype does its job quite decently. Later I was able to add the AI algorithm so that the game plays by itself.
@@ -169,7 +169,7 @@ Also recall that this prototype was not finished due the creation of the new Gen
 #### Diagrams
 The following images are informal representations of what I did. Let's start with the package structure of the project.
 
-[![package-structure](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/package-structure.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
+[![Package Structure](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/package-structure.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
 <p align=center><strong>Package Structure</strong></p>
 
 It contains the main packages and classes in the source code. The packages are filled in yellow and a description of each item is given in green text.
@@ -178,21 +178,21 @@ It contains the main packages and classes in the source code. The packages are f
 
 The following image represents the objects that interact with main objects in the framework.
 
-[![instance-object-hierarchy](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/instance-object-hierarchy.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
+[![Instance Object Hierarchy](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/instance-object-hierarchy.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
 <p align=center><strong>Instance Object Hierarchy</strong></p>
 
 ------
 
 This diagram shows the flowchart since starting the game through the EDT until rendering the graphics. It is basically how the game flows in its life cycle.
 
-[![flowchart](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/basic-2d-game.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
+[![Flowchart](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/basic-2d-game.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
 <p align=center><strong>Basic 2D Game</strong></p>
 
 ------
 
 Finally I have something interesting which is the key pool algorithm. When running the game, many keys from the input can be registered by the io module, since the keys may be duplicated and there are many inputs for just one key being pressed, that is, the system constantly sends inputs for just one key to use in the game, we only care if the key was pressed and take an action with that user input, so in the end many key objects are instantiated and what we have to do is to create a pool that collects *instances* of keys to reuse them and avoid creating and garbage collecting a ridiculous amount of keys entering and being read by the game for many times per second. If the pool is empty create a new key object, if not, take one and reuse it.
 
-[![keypool-algorithm](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/keypool-algorithm.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
+[![KeyPool Algorithm](https://raw.githubusercontent.com/TobiasBriones/images/master/gencesk-2d/gencesk-2d-prototype-2018/keypool-algorithm.png)](https://github.com/TobiasBriones/images/tree/master/gencesk-2d)
 <p align=center><strong>KeyPool Algorithm</strong></p>
 
 ### Disclaimer
